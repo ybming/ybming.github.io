@@ -6,10 +6,6 @@
   --glass-blur: 10px;
   --glass-opacity-light: 0.85;
   --glass-opacity-dark: 0.75;
-  /* 设置misans字体 */
-  --font-family: 'MiSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-family: var(--font-family);
-  
   /* 替换红色系变量为蓝色系 */
   --red-0: #1976d2;       /* 替换 #ff0000 */
   --red-1: #2196f3;       /* 替换 #ff5252 */
@@ -62,23 +58,6 @@ a:hover {
 
 /* 保留原有布局和其他样式不变，仅替换颜色变量 */
 
-/* 确保全局使用misans字体，但避免影响字体图标 */
-html, body {
-  font-family: var(--font-family);
-}
-
-/* 为文本元素设置字体，但不使用!important以避免覆盖字体图标 */
-h1, h2, h3, h4, h5, h6, p, a, span:not(.icon), div:not(.icon-container):not(:has(.icon)), li {
-  font-family: var(--font-family);
-}
-
-/* 扩展图标类覆盖范围以确保所有图标正常显示 */
-.icon, .iconfont, .fa, .fas, .far, .fab, .fad, .fal,
-[class^="icon-"]:not(.icon-text), [class*=" icon-"]:not(.icon-text),
-[class^="fa-"]:not(.fa-text), [class*=" fa-"]:not(.fa-text),
-#nav a i, .menu-item i, .sidebar-item i, .toc-item i {
-  font-family: inherit !important;
-}
 
 /* 容器内毛玻璃效果 */
 /* 应用于主要容器 */
