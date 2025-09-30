@@ -1,0 +1,115 @@
+/* 蓝色系主题样式 - 仅替换颜色变量，保留原有布局 */
+
+/* 覆盖红色系变量为蓝色系 - 浅色模式 */
+:root {
+  /* 设置毛玻璃效果的基础值 */
+  --glass-blur: 10px;
+  --glass-opacity-light: 0.85;
+  --glass-opacity-dark: 0.75;
+  /* 设置misans字体 */
+  --font-family: 'MiSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-family);
+  
+  /* 替换红色系变量为蓝色系 */
+  --red-0: #1976d2;       /* 替换 #ff0000 */
+  --red-1: #2196f3;       /* 替换 #ff5252 */
+  --red-2: #42a5f5;       /* 替换 #ff7c7c */
+  --red-3: #64b5f6;       /* 替换 #ffafaf */
+  --red-4: #90caf9;       /* 替换 #ffd0d0 */
+  --red-5: #e3f2fd;       /* 替换 #ffecec */
+  --red-5-5: #e3f2fd;     /* 替换 #fff3f3 */
+  --red-6: #f0f9ff;       /* 替换 #fff7f7 */
+  
+  /* 替换红色阴影 */
+  --color-red-6-shadow: rgba(66, 165, 245, 0.6);  /* 替换 rgba(255, 78, 78, 0.6) */
+  --color-red-3-shadow: rgba(66, 165, 245, 0.3);  /* 替换 rgba(255, 78, 78, 0.3) */
+  
+  /* 保持其他原有颜色变量不变 */
+  /* 只替换使用红色系的关键颜色 */
+  --color-border: var(--red-3) !important;
+  --color-link: var(--red-1) !important;
+  --color-h2-after: var(--red-1) !important;
+  --color-meta-shadow: var(--red-6) !important;
+}
+
+/* 覆盖红色系变量为蓝色系 - 深色模式 */
+[data-theme="dark"] {
+  /* 替换红色系变量为蓝色系 */
+  --red-1: #1387e6;       /* 替换原来的红色值 */
+  --red-4: rgba(144, 202, 249, 0.5);  /* 替换 rgba(255, 208, 208, 0.5) */
+  --red-5: rgba(227, 242, 253, 0.15); /* 替换 rgba(255,228,228,0.15) */
+  --red-5-5: rgba(227, 242, 253, 0.05); /* 替换 rgba(255,236,236,0.05) */
+  --red-6: rgba(227, 242, 253, 0.2);  /* 替换 rgba(255, 243, 243, 0.2) */
+  
+  /* 保持其他原有颜色变量不变 */
+  /* 只替换使用红色系的关键颜色 */
+  --color-border: var(--red-5) !important;
+}
+
+/* 调整代码高亮中使用红色的部分为蓝色 */
+.hljs-keyword, .hljs-selector-tag, .hljs-subst {
+  color: var(--red-1) !important;
+}
+
+.hljs-title, .hljs-section, .hljs-built_in, .hljs-variable, .hljs-template-variable {
+  color: var(--red-0) !important;
+}
+
+/* 链接悬停颜色调整 */
+a:hover {
+  color: var(--red-2) !important;
+}
+
+/* 保留原有布局和其他样式不变，仅替换颜色变量 */
+
+/* 确保全局使用misans字体，但避免影响字体图标 */
+html, body {
+  font-family: var(--font-family);
+}
+
+/* 为文本元素设置字体，但不使用!important以避免覆盖字体图标 */
+h1, h2, h3, h4, h5, h6, p, a, span:not(.icon), div:not(.icon-container):not(:has(.icon)), li {
+  font-family: var(--font-family);
+}
+
+/* 扩展图标类覆盖范围以确保所有图标正常显示 */
+.icon, .iconfont, .fa, .fas, .far, .fab, .fad, .fal,
+[class^="icon-"]:not(.icon-text), [class*=" icon-"]:not(.icon-text),
+[class^="fa-"]:not(.fa-text), [class*=" fa-"]:not(.fa-text),
+#nav a i, .menu-item i, .sidebar-item i, .toc-item i {
+  font-family: inherit !important;
+}
+
+/* 容器内毛玻璃效果 */
+/* 应用于主要容器 */
+#page, .main-container, .container {
+  background-color: rgba(255, 255, 255, var(--glass-opacity-light)) !important;
+  backdrop-filter: blur(var(--glass-blur)) !important;
+  -webkit-backdrop-filter: blur(var(--glass-blur)) !important;
+}
+
+/* 应用于文章卡片 */
+.article-card, .post-entry {
+  background-color: rgba(255, 255, 255, var(--glass-opacity-light)) !important;
+  backdrop-filter: blur(calc(var(--glass-blur) / 2)) !important;
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur) / 2)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* 深色模式下的毛玻璃效果 */
+[data-theme="dark"] #page,
+[data-theme="dark"] .main-container,
+[data-theme="dark"] .container {
+  background-color: rgba(30, 30, 30, var(--glass-opacity-dark)) !important;
+  backdrop-filter: blur(var(--glass-blur)) !important;
+  -webkit-backdrop-filter: blur(var(--glass-blur)) !important;
+}
+
+[data-theme="dark"] .article-card,
+[data-theme="dark"] .post-entry {
+  background-color: rgba(30, 30, 30, var(--glass-opacity-dark)) !important;
+  backdrop-filter: blur(calc(var(--glass-blur) / 2)) !important;
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur) / 2)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
